@@ -4,7 +4,8 @@
   "description": "server for podify app",
   "main": "index.js",
   "scripts": {
-    "dev": "tsnd --respawn --pretty --transpile-only ./src/index.ts"
+    "dev": "tsnd --respawn -r tsconfig-paths/register --pretty --transpile-only ./src/index.ts",
+    "build": "tsc && tsc-alias"
   },
   "keywords": [],
   "author": "favour",
@@ -12,7 +13,8 @@
   "dependencies": {
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "mongoose": "^7.6.2"
+    "mongoose": "^7.6.2",
+    "tsc-alias": "^1.8.8"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
@@ -20,6 +22,7 @@
     "@types/mongoose": "^5.11.97",
     "@types/node": "^20.8.6",
     "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.2.2"
   }
 }
