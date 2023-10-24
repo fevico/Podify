@@ -3,6 +3,7 @@ import 'dotenv/config';
 import './db/index'
 import authRouter from './routers/auth'
 
+
 const app = express();
 // register our middleware 
 app.use(express.json())

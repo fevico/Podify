@@ -1,13 +1,12 @@
-import { CreateUser } from '#/@types/user';
-import User from '#/models/user';
 import {Router} from 'express';
+import { CreateUserSchema, EmailVerificationBody } from '#/utiles/validationSchema';
+import { validate } from '#/middleware/validator';
+import { create, sendReverificationToken, verifyEmail } from '#/controller/user';
 
 const router = Router();
-router.post('/create', async(req: CreateUser, res)=>{
-    const {email, password, name} = req.body;
-//   const Newuser = new User({email, password, name})
-//   Newuser.save()
-const user = await User.create({name, email, password})
-res.json({user});
-})
-export default router
+
+router.post('/create', validate(CreateUserSchema), create);
+router.post('/verify-email', validate(EmailVerificationBody), verifyEmail);
+router.post('/re-verify-email', sendReverificationToken);
+router.post('/forget-password', generateForgetPasswordLink);
+export default router 
