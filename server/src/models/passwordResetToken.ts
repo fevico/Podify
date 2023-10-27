@@ -2,7 +2,7 @@ import { Model, ObjectId, Schema, model } from "mongoose";
 import { hash, compare } from "bcrypt";
 
 // creating interface 
-interface EmailVerificationTokenDocument {
+interface PasswordResetTokenDocument {
     owner: ObjectId;
     token: String;
     createdAt: Date;
@@ -13,7 +13,7 @@ interface Methods{
 }
 
 // expire token after 1 hour
-const emailVerificationTokenSchema = new Schema<EmailVerificationTokenDocument, {}, Methods>({
+const passwordResetTokenSchema = new Schema<PasswordResetTokenDocument, {}, Methods>({
         owner:{
             type: Schema.Types.ObjectId,
             required:true,
@@ -30,18 +30,18 @@ const emailVerificationTokenSchema = new Schema<EmailVerificationTokenDocument, 
         }
     });
 
-    emailVerificationTokenSchema.pre('save', async function(next){
+    passwordResetTokenSchema.pre('save', async function(next){
         // hash the token
         if(this.isModified("token")){
-            this.token = await hash(this.token, 10); 
+            this.token = await hash(this.token, 10);
         }
         next();
     }); 
 
-    emailVerificationTokenSchema.methods.compareToken = async function(token){
+    passwordResetTokenSchema.methods.compareToken = async function(token){
      const result = await compare(token, this.token)
      return result
     }
 
-export default model("EmailVerificationTokenSchema", emailVerificationTokenSchema) as 
-Model<EmailVerificationTokenDocument, {}, Methods> 
+export default model("PasswordResetToken", passwordResetTokenSchema) as 
+Model<PasswordResetTokenDocument, {}, Methods> 
