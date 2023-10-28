@@ -53,7 +53,7 @@ const userSchema = new Schema<UserDocument, {}, Methods>({
     }],
     followings:[{
         type: Schema.Types.ObjectId,
-        ref: "User"
+        ref: "User" 
     }],
     tokens: [String]
 },{timestamps: true});
