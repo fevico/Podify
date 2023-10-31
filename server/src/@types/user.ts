@@ -10,9 +10,9 @@ declare global{
                 verified: boolean,
                 avatar?: string,
                 followers: number,
-                followings: number,
-        
-            }
+                followings: number;
+            };
+            token: string;
         }
     }
 }
