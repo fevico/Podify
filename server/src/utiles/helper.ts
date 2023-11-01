@@ -15,7 +15,7 @@ export const formatProfile = (user: UserDocument) =>{
     return {
         id: user._id,
         name: user.name,
-        email: user.email,
+        email: user.email, 
         verified: user.verified,
         avatar: user.avater?.url,
         followers: user.followers.length,

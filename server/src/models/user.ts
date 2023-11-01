@@ -4,14 +4,14 @@ import { Model, ObjectId, Schema, model } from "mongoose";
 // creating interface 
 export interface UserDocument {
     _id: ObjectId;
-    name: string;
+    name: string; 
     email: string;
     password:string;
     verified: boolean;
     avater?: {url: string; publicId: string}
     tokens: string[];
-    favourites: ObjectId[]
-    followers: ObjectId[]
+    favourites: ObjectId[];
+    followers: ObjectId[];
     followings: ObjectId[]
 }
 

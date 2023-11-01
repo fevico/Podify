@@ -187,7 +187,7 @@ export const updateProfile: RequestHandler = async (req:RequestWithFiles, res) =
   user.name = name
 
   if(avatar){
-    // if there is already an avater file, we want to remove that and then upload new file 
+    // if there is already an avater file, we want to remove that and then upload new file
     if(user.avater?.publicId){
      await cloudinary.uploader.destroy(user.avater?.publicId)
     }
@@ -197,7 +197,7 @@ export const updateProfile: RequestHandler = async (req:RequestWithFiles, res) =
       crop: "thumb", 
       gravity: "face"
     }) 
-    user.avater = {url:secure_url, publicId: public_id}
+    user.avater = { url:secure_url, publicId: public_id }
   } 
 
   await user.save()
@@ -224,6 +224,6 @@ export const logout: RequestHandler =async (req, res) =>{
   await user.save()
   res.json({success: true});
 
-  req.headers.authorization
+  // req.headers.authorization
 }
 
