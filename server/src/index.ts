@@ -4,6 +4,7 @@ import './db/index'
 import authRouter from './routers/auth'
 import audioRouter from './routers/audio'
 import favouriteRouter from './routers/favourites'
+import PlaylistRouter from './routers/playlist'
 
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(express.static('src/public'));
 app.use("/auth", authRouter);
 app.use("/audio", audioRouter);
 app.use("/favourite", favouriteRouter);
+app.use("/playlist", PlaylistRouter);
 
 const PORT = process.env.PORT || 8989; 
 app.listen(PORT, ()=>{

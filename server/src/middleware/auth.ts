@@ -41,7 +41,7 @@ export const mustAuth: RequestHandler = async(req, res, next)=>{
       
       req.token = token;
 
-    next() 
+    next()
 };
 
 export const isVerified: RequestHandler=(req, res, next) =>{

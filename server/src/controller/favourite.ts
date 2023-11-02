@@ -80,5 +80,5 @@ export const getIsFavourite: RequestHandler = async (req, res) => {
 
     const favourite = await Favourite.findOne({ owner: req.user.id, items: audioId })
         
-    res.json({ result: favourite? true : false });
+    res.json({ result: favourite ? true : false });
 }
