@@ -17,7 +17,7 @@ router.post('/update-password', validate(UpdatePasswordSchema), isValidPasswordR
 router.post('/sign-in', validate(SignInValidationSchema), signIn);
 
 router.get('/is-auth', mustAuth, sendProfile)  
-
+ 
 
 router.post('/update-profile', mustAuth, fileParser, updateProfile);
 router.post('/log-out', mustAuth, logout)

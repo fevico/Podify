@@ -5,7 +5,8 @@ import authRouter from './routers/auth'
 import audioRouter from './routers/audio'
 import favouriteRouter from './routers/favourites'
 import PlaylistRouter from './routers/playlist'
-
+import profileRouter from './routers/profile'
+import historyRouter from './routers/history'
 
 const app = express();
 // register our middleware 
@@ -17,6 +18,8 @@ app.use("/auth", authRouter);
 app.use("/audio", audioRouter);
 app.use("/favourite", favouriteRouter);
 app.use("/playlist", PlaylistRouter);
+app.use("/profile", profileRouter);  
+app.use("/history", historyRouter);  
 
 const PORT = process.env.PORT || 8989; 
 app.listen(PORT, ()=>{

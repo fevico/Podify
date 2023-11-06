@@ -7,7 +7,7 @@ export interface UserDocument {
     name: string; 
     email: string;
     password:string;
-    verified: boolean;
+    verified: boolean; 
     avater?: {url: string; publicId: string}
     tokens: string[];
     favourites: ObjectId[];

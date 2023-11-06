@@ -28,7 +28,7 @@ export const createaudio: RequestHandler = async(req:CreateAudioRequest, res) =>
     const audio = new Audio({
         title,
         about,
-        category,
+        category, 
         owner: ownerId,
         file: {url: audioRes.url, publicId: audioRes.public_id}
     });

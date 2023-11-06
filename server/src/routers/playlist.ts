@@ -10,6 +10,6 @@ router.post("/create", mustAuth, isVerified, validate(NewPlaylistValidationSchem
 router.patch("/", mustAuth, validate(OldPlaylistValidationSchema), UpdatePlaylist);
 router.delete("/", mustAuth, removePlaylist);
 router.get("/by-profile", mustAuth, getPlaylistByProfile);
-router.get("/:playlistId", mustAuth, getAudios);
+router.get("/:playlistId", mustAuth, getAudios); 
 
 export default router 

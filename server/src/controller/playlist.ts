@@ -131,10 +131,10 @@ export const getAudios : RequestHandler = async(req, res) => {
         return {
             id: item._id,
             title: item.title,
-            category: item.category,
+            category: item.category, 
             file: item.file.url,
             poster: item.poster?.url,
-            owener: {name: item.owner.name, id: item.owner._id}
+            owner: {name: item.owner.name, id: item.owner._id}
         }
     })
 
