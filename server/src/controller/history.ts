@@ -33,7 +33,7 @@ export const updateHistory: RequestHandler = async(req, res) => {
 
    const histories = await History.aggregate([
     { $match: { owner: req.user.id } },
-     { $unwind: "$all" },
+      { $unwind: "$all" },
     {
       $match: {
         "all.date": {
@@ -112,7 +112,7 @@ export const getHistories: RequestHandler = async(req, res) => {
         as: "audioInfo"
     }
 },
-    {$unwind: "$audioInfo" },
+     {$unwind: "$audioInfo" },
     {$project: {
         _id: 0,
         id: "$all._id",
@@ -136,7 +136,7 @@ export const getHistories: RequestHandler = async(req, res) => {
             audios: "$$ROOT.audios",
         }
     },
-    {$sort : {date: -1} },
+     {$sort : {date: -1} },
   ]);
   res.json({histories});
 }

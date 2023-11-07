@@ -9,6 +9,6 @@ const router = Router()
 router.post("/", mustAuth, validate(UpdateHistorySchema), updateHistory)
 router.delete("/", mustAuth, removeHistory)
 router.get("/", mustAuth, getHistories)
-router.get("/recently-played", mustAuth, getRecentlyPlayed)
+router.get("/recently-played", mustAuth, getRecentlyPlayed) 
 
 export default router 

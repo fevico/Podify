@@ -7,6 +7,7 @@ import favouriteRouter from './routers/favourites'
 import PlaylistRouter from './routers/playlist'
 import profileRouter from './routers/profile'
 import historyRouter from './routers/history'
+import "./utiles/schedule";
 
 const app = express();
 // register our middleware 
